@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="quoteBook">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title">
+  </head>
+  <body ng-controller="mainCtrl as vm">
+    <input type="text" placeholder="Add new quote!" ng-model='vm.newQuoteText'>
+    <input type="text" placeholder="Quotes author!" ng-model='vm.newQuoteAuthor'>
+    <button ng-click="vm.addQuote()">Add Quote</button>
+    <div>
+       Filter: <input type="text" ng-model='filterText'/>
+    </div>
+
+    <p ng-repeat = "quote in vm.quotes | filter: filterText">
+      <span class = 'text'>{{quote.text}}</span>
+      <span class = 'author'>{{quote.author}}</span>
+      <button ng-click = "vm.deleleText(quote.text)">Delete</button>
+    </p>
+
+
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/mainCtrl.js"></script>
+  <script src="/js/dataService.js"></script>
+  </body>
+</html>
